@@ -17,24 +17,47 @@ import sample.user.UserDTO;
  */
 public class BookingDTO {
     private String bookingID;
-    private UserDTO userID;
-    private ServiceDTO serviceID;
-    private Date dateBooking;
-    private Time timeBooking;
-    private DoctorDTO doctorName;
-
-    public BookingDTO(String bookingID, UserDTO userID, ServiceDTO serviceID, Date dateBooking, Time timeBooking, DoctorDTO doctorName) {
-        this.bookingID = bookingID;
-        this.userID = userID;
-        this.serviceID = serviceID;
-        this.dateBooking = dateBooking;
-        this.timeBooking = timeBooking;
-        this.doctorName = doctorName;
-    }
-
-    
+    private String patientID;
+    private String patientName;
+    private String patientGender;
+    private String serviceID;
+    private String serviceName;
+    private String doctorName;
+    private String dateBooking;
+    private String timeBooking;    
+    private String slotName;
+    private String slotTime;
+    private boolean status;
 
     public BookingDTO() {
+    }
+
+    public BookingDTO(String bookingID, String patientName, String patientGender, String serviceName, String doctorName, String dateBooking, String timeBooking, String slotName, String slotTime, boolean status) {
+        this.bookingID = bookingID;
+        this.patientName = patientName;
+        this.patientGender = patientGender;
+        this.serviceName = serviceName;
+        this.doctorName = doctorName;
+        this.dateBooking = dateBooking;
+        this.timeBooking = timeBooking;
+        this.slotName = slotName;
+        this.slotTime = slotTime;
+        this.status = status;
+    }
+
+    public BookingDTO(String bookingID, String patientID, String patientName, String patientGender, String serviceID, String serviceName, String doctorName, String dateBooking, String timeBooking, String slotName, String slotTime, boolean status) {
+        this.bookingID = bookingID;
+        this.patientID = patientID;
+        this.patientName = patientName;
+        this.patientGender = patientGender;
+        this.serviceID = serviceID;
+        this.serviceName = serviceName;
+        this.doctorName = doctorName;
+        this.dateBooking = dateBooking;
+        this.timeBooking = timeBooking;
+        this.slotName = slotName;
+        this.slotTime = slotTime;
+        this.status = status;
     }
 
     public String getBookingID() {
@@ -45,45 +68,100 @@ public class BookingDTO {
         this.bookingID = bookingID;
     }
 
-    public UserDTO getUserID() {
-        return userID;
+    public String getPatientID() {
+        return patientID;
     }
 
-    public void setUserID(UserDTO userID) {
-        this.userID = userID;
+    public void setPatientID(String patientID) {
+        this.patientID = patientID;
     }
 
-    public ServiceDTO getServiceID() {
+    public String getPatientName() {
+        return patientName;
+    }
+
+    public void setPatientName(String patientName) {
+        this.patientName = patientName;
+    }
+
+    public String getPatientGender() {
+        return patientGender;
+    }
+
+    public void setPatientGender(String patientGender) {
+        this.patientGender = patientGender;
+    }
+
+    public String getServiceID() {
         return serviceID;
     }
 
-    public void setServiceID(ServiceDTO serviceID) {
+    public void setServiceID(String serviceID) {
         this.serviceID = serviceID;
     }
 
-    public Date getDateBooking() {
-        return dateBooking;
+    public String getServiceName() {
+        return serviceName;
     }
 
-    public void setDateBooking(Date dateBooking) {
-        this.dateBooking = dateBooking;
+    public void setServiceName(String serviceName) {
+        this.serviceName = serviceName;
     }
 
-    public Time getTimeBooking() {
-        return timeBooking;
-    }
-
-    public void setTimeBooking(Time timeBooking) {
-        this.timeBooking = timeBooking;
-    }
-
-    public DoctorDTO getDoctorName() {
+    public String getDoctorName() {
         return doctorName;
     }
 
-    public void setDoctorName(DoctorDTO doctorName) {
+    public void setDoctorName(String doctorName) {
         this.doctorName = doctorName;
     }
+
+    public String getDateBooking() {
+        return dateBooking;
+    }
+
+    public void setDateBooking(String dateBooking) {
+        this.dateBooking = dateBooking;
+    }
+
+    public String getTimeBooking() {
+        return timeBooking;
+    }
+
+    public void setTimeBooking(String timeBooking) {
+        this.timeBooking = timeBooking;
+    }
+
+    public String getSlotName() {
+        return slotName;
+    }
+
+    public void setSlotName(String slotName) {
+        this.slotName = slotName;
+    }
+
+    public String getSlotTime() {
+        return slotTime;
+    }
+
+    public void setSlotTime(String slotTime) {
+        this.slotTime = slotTime;
+    }
+
+    public boolean isStatus() {
+        return status;
+    }
+
+    public void setStatus(boolean status) {
+        this.status = status;
+    }
+    
+    
+    
+    
+    
+    
+
     
     
     

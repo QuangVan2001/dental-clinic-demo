@@ -27,6 +27,15 @@ public class UserDTO {
     public UserDTO() {
     }
 
+    public UserDTO(String fullName) {
+        this.fullName = fullName;
+    }
+    
+    public UserDTO(String fullName, String gender) {
+        this.fullName = fullName;
+        this.gender = gender;
+    }
+
     public String getUserID() {
         return userID;
     }

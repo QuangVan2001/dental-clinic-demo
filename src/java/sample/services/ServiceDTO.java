@@ -12,21 +12,27 @@ package sample.services;
 public class ServiceDTO {
     private String serviceID;
     private String serviceName;
-    private String image;
-    private CategoryServiceDTO categoryID;
-    private CategoryServiceDTO categoryName;
+    private String image;  
     private String price;
     private String status;
 
     public ServiceDTO() {
     }
 
-    public ServiceDTO(String serviceID, String serviceName, String image, CategoryServiceDTO categoryID, CategoryServiceDTO categoryName, String price, String status) {
+    public ServiceDTO(String serviceName) {
+        this.serviceName = serviceName;
+    }
+
+    public ServiceDTO(String serviceID, String serviceName) {
+        this.serviceID = serviceID;
+        this.serviceName = serviceName;
+    }
+ 
+    public ServiceDTO(String serviceID, String serviceName, String image,  String price, String status) {
         this.serviceID = serviceID;
         this.serviceName = serviceName;
         this.image = image;
-        this.categoryID = categoryID;
-        this.categoryName = categoryName;
+        
         this.price = price;
         this.status = status;
     }
@@ -53,22 +59,6 @@ public class ServiceDTO {
 
     public void setImage(String image) {
         this.image = image;
-    }
-
-    public CategoryServiceDTO getCategoryID() {
-        return categoryID;
-    }
-
-    public void setCategoryID(CategoryServiceDTO categoryID) {
-        this.categoryID = categoryID;
-    }
-
-    public CategoryServiceDTO getCategoryName() {
-        return categoryName;
-    }
-
-    public void setCategoryName(CategoryServiceDTO categoryName) {
-        this.categoryName = categoryName;
     }
 
     public String getPrice() {

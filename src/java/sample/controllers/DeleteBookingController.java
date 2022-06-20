@@ -7,53 +7,39 @@ package sample.controllers;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.List;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 import sample.user.AdminDAO;
-import sample.user.DoctorDTO;
 
 /**
  *
  * @author QUANG VAN
  */
-public class ManageDoctor extends HttpServlet {
+@WebServlet(name = "DeleteBookingController", urlPatterns = {"/DeleteBookingController"})
+public class DeleteBookingController extends HttpServlet {
 
-    public static final String ERROR = "error.jsp";
-    public static final String SUCESSFUL = "manageDoctor.jsp";
-
+    private static  final String ERROR = "showBooking.jsp";
+    private static final String SUCCESS ="ShowBookingController";
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         String url = ERROR;
-        HttpSession session = request.getSession();
         try {
+            String bookingID = request.getParameter("bookingID");
             AdminDAO dao = new AdminDAO();
-//            int numberOfDoctor = dao.getNumberOfDoctor();
-//            request.setAttribute("NUMBER_OF_DOCTOR", numberOfDoctor);
-//            String indexString = request.getParameter("index");
-//            if (indexString == null) {
-//                indexString = "1";
-//            }
-//            int index = Integer.parseInt(indexString);
-//            int maxPages = dao.getFullDoctorMaxPagesBy5();
-//            System.out.println(maxPages);
-//            dao.getFullListDoctor(index);
-            
-            List<DoctorDTO> list = dao.getListAllDoctor();
-            
-            session.setAttribute("LIST_DOCTOR", list);
-//            session.setAttribute("maxPages", maxPages);
-//            session.setAttribute("index", index);
-            url = SUCESSFUL;
+            boolean check = dao.deteleAppointmentBooking(bookingID);
+            if (check) {
+                url = SUCCESS;
+            }
         } catch (Exception e) {
-            log("Error at DisplayCUSController: " + e.toString());
+            log("Error at DeleteBookingController:" +e.toString());
         } finally {
             request.getRequestDispatcher(url).forward(request, response);
         }
+        
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

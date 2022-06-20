@@ -35,9 +35,11 @@
 
             </form>
         </div>
-
+                
     </div>
-
+            <div class="addNew">
+                <a href="MainController?action=AddDoctor">Thêm Bác sĩ</a>
+            </div>
     <div class="table-responsive">
         <%  List<DoctorDTO> list = (List<DoctorDTO>) session.getAttribute("LIST_DOCTOR");
             if (list != null) {

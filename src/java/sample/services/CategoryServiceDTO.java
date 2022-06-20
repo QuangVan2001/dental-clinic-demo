@@ -13,6 +13,7 @@ public class CategoryServiceDTO {
     private String categoryID;
     private String categoryName;
     private String status;
+    private ServiceDTO service;
 
     public CategoryServiceDTO() {
     }
@@ -23,6 +24,14 @@ public class CategoryServiceDTO {
         this.status = status;
     }
 
+    public CategoryServiceDTO(String categoryID, String categoryName, ServiceDTO service, String status) {
+        this.categoryID = categoryID;
+        this.categoryName = categoryName;
+        this.status = status;
+        this.service = service;
+    }
+  
+    
     public String getCategoryID() {
         return categoryID;
     }
@@ -46,5 +55,16 @@ public class CategoryServiceDTO {
     public void setStatus(String status) {
         this.status = status;
     }
+
+    public ServiceDTO getService() {
+        return service;
+    }
+
+    public void setService(ServiceDTO service) {
+        this.service = service;
+    }
+
+    
+    
     
 }

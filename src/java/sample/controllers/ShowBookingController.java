@@ -9,10 +9,14 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import sample.booking.BookingDTO;
+import static sample.controllers.ManageDoctor.ERROR;
+import static sample.controllers.ManageDoctor.SUCESSFUL;
 import sample.user.AdminDAO;
 import sample.user.DoctorDTO;
 
@@ -20,11 +24,11 @@ import sample.user.DoctorDTO;
  *
  * @author QUANG VAN
  */
-public class ManageDoctor extends HttpServlet {
-
+@WebServlet(name = "ShowBookingController", urlPatterns = {"/ShowBookingController"})
+public class ShowBookingController extends HttpServlet {
     public static final String ERROR = "error.jsp";
-    public static final String SUCESSFUL = "manageDoctor.jsp";
-
+    public static final String SUCESSFUL = "showBooking.jsp";
+    
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
@@ -43,9 +47,9 @@ public class ManageDoctor extends HttpServlet {
 //            System.out.println(maxPages);
 //            dao.getFullListDoctor(index);
             
-            List<DoctorDTO> list = dao.getListAllDoctor();
+            List<BookingDTO> list = dao.getListAllAppointmentBooking();
             
-            session.setAttribute("LIST_DOCTOR", list);
+            session.setAttribute("LIST_BOOKING", list);
 //            session.setAttribute("maxPages", maxPages);
 //            session.setAttribute("index", index);
             url = SUCESSFUL;

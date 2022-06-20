@@ -18,6 +18,10 @@ public class DoctorDTO extends UserDTO{
     public DoctorDTO() {
     }
 
+    public DoctorDTO(String fullName) {
+        super(fullName);
+    }
+    
     public DoctorDTO( String userID, String fullName, String gender, String email, String phone,String categoryName, boolean status) {
         super(userID, fullName, gender, email, phone, status);
         this.categoryName = categoryName;
